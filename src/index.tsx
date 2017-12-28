@@ -8,7 +8,7 @@ import todoItems from './reducers';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore<StoreState>(todoItems, {items: []}, composeWithDevTools());
+const store = createStore<StoreState>(todoItems, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>
