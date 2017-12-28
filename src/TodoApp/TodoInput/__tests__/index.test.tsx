@@ -12,12 +12,28 @@ describe('TodoInput Container Test', () => {
     store = configureMockStore<StoreState>()();
   });
 
-  it('adds an item', () => {
+  it('adds an item by invoking the prop passed to presentation', () => {
     const wrapper = shallow(<TodoInput />, { context: { store }});
 
     wrapper.prop('addTodo')('item');
     const actions = store.getActions();
 
     expect(actions[0]).toEqual(tryAddTodo('item'));
+  });
+
+  it('adds an item to actions when form is submitted', () => {
+    const wrapper = shallow(<TodoInput />, { context: { store }});
+    const form = wrapper.dive();
+    form.find('form > input').simulate('change', {target: {value: 'item'}});
+    form.find('form').simulate('submit', {preventDefault: () => {}});
+    const actions = store.getActions();
+
+    expect(actions[0]).toEqual(tryAddTodo('item'));
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallow(<TodoInput />, { context: { store }});
+
+    expect(wrapper.dive().html()).toMatchSnapshot();
   });
 });

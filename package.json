@@ -6,6 +6,7 @@
     "@types/enzyme": "^3.1.6",
     "@types/enzyme-adapter-react-16": "^1.0.1",
     "@types/react-redux": "^5.0.14",
+    "@types/react-test-renderer": "^16.0.0",
     "@types/redux-mock-store": "0.0.12",
     "@types/redux-saga": "^0.10.5",
     "autoprefixer": "7.1.2",
