@@ -1,7 +1,7 @@
 import * as constants from '../constants';
 
 export interface AddTodo {
-  type: constants.ADD_TODO;
+  type: string;
   text: string;
 }
 
@@ -14,6 +14,13 @@ export type TodoAction = AddTodo | RemoveTodo;
 export function addTodo(text: string): AddTodo {
   return {
     type: constants.ADD_TODO,
+    text
+  };
+}
+
+export function tryAddTodo(text: string): AddTodo {
+  return {
+    type: constants.TRY_ADD_TODO,
     text
   };
 }

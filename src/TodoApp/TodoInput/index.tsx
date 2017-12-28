@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 
 function mapDispatchToProps(dispatch: Dispatch<actions.AddTodo>): Props {
   return {
-    addTodo: (text: string) => dispatch(actions.addTodo(text))
+    addTodo: (text: string) => dispatch(actions.tryAddTodo(text))
   };
 }
 
