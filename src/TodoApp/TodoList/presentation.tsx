@@ -6,7 +6,7 @@ export interface Props {
 
 export function Presentation({items}: Props) {
   return (
-    <section>
+    <section data-id="todo-items">
       {items.map((item) => (<p>{item}</p>))}
     </section>
   );
